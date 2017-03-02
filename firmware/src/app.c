@@ -131,10 +131,20 @@ void APP_Initialize ( void )
   Remarks:
     See prototype in app.h.
  */
+#define BUFFER_COUNT    1
+#define DISPLAY_WIDTH   480
+#define DISPLAY_HEIGHT  272
+
+extern uint16_t __attribute__((coherent, aligned(16))) frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+
+
+uint16_t color = 0;
 
 void APP_Tasks ( void )
 {
-
+//    uint32_t i;
+//    uint16_t *ptr;
+//    uint32_t delay;
     /* Check the application's current state. */
     switch ( appData.state )
     {
@@ -154,7 +164,17 @@ void APP_Tasks ( void )
 
         case APP_STATE_SERVICE_TASKS:
         {
-        
+//            color += 0x1111;
+//            ptr = frameBuffer[0];
+//            i = DISPLAY_WIDTH * DISPLAY_HEIGHT + 1;
+//            while(--i)
+//            {
+//                *ptr++ = color;
+//            }
+//            delay = 0x3F0000;
+//            while(delay--){}
+            appData.state = APP_STATE_SERVICE_TASKS;
+              
             break;
         }
 

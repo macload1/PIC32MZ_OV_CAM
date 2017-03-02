@@ -45,7 +45,7 @@ laScheme defaultScheme;
 laLabelWidget* LabelWidget1;
 laImageWidget* ImageWidget1;
 laButtonWidget* ButtonWidget1;
-
+laRectangleWidget* RectangleWidget1;
 
 static void ScreenCreate_default(laScreen* screen);
 
@@ -53,8 +53,10 @@ static void ScreenCreate_default(laScreen* screen);
 int32_t libaria_initialize(void)
 {
     laScreen* screen;
-
+    
     laScheme_Initialize(&defaultScheme, GFX_COLOR_MODE_RGB_565);
+    
+    // Color are written in BGR565
     defaultScheme.base = 0xC67A;
     defaultScheme.highlight = 0xC67A;
     defaultScheme.highlightLight = 0xFFFF;
@@ -66,12 +68,13 @@ int32_t libaria_initialize(void)
     defaultScheme.background = 0xFFFF;
     defaultScheme.backgroundInactive = 0xD71C;
     defaultScheme.backgroundDisabled = 0xC67A;
-    defaultScheme.text = 0x0;
+    defaultScheme.text = 0xF800;
     defaultScheme.textHighlight = 0x1F;
     defaultScheme.textHighlightText = 0xFFFF;
     defaultScheme.textInactive = 0xD71C;
     defaultScheme.textDisabled = 0x8C92;
-
+   
+    
     screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_default);
     laContext_AddScreen(screen);
 
@@ -93,6 +96,7 @@ static void ScreenCreate_default(laScreen* screen)
     laScreen_SetLayer(screen, 0, layer0);
 
     LabelWidget1 = laLabelWidget_New();
+    laWidget_SetScheme((laWidget*)LabelWidget1, (laScheme*)&defaultScheme);
     laWidget_SetPosition((laWidget*)LabelWidget1, 146, 1);
     laWidget_SetSize((laWidget*)LabelWidget1, 179, 39);
     laWidget_SetDrawBackground((laWidget*)LabelWidget1, LA_FALSE);
@@ -109,12 +113,21 @@ static void ScreenCreate_default(laScreen* screen)
     laWidget_AddChild((laWidget*)layer0, (laWidget*)ImageWidget1);
 
     ButtonWidget1 = laButtonWidget_New();
+    laWidget_SetScheme((laWidget*)ButtonWidget1, (laScheme*)&defaultScheme);
     laWidget_SetPosition((laWidget*)ButtonWidget1, 101, 201);
     laWidget_SetSize((laWidget*)ButtonWidget1, 270, 40);
     laWidget_SetDrawBackground((laWidget*)ButtonWidget1, LA_TRUE);
     laWidget_SetBorderType((laWidget*)ButtonWidget1, LA_WIDGET_BORDER_BEVEL);
     laButtonWidget_SetText(ButtonWidget1, laString_CreateFromID(string_Instructions));
     laWidget_AddChild((laWidget*)layer0, (laWidget*)ButtonWidget1);
+    
+    RectangleWidget1 = laRectangleWidget_New();
+    laWidget_SetScheme((laWidget*)RectangleWidget1, (laScheme*)&defaultScheme);
+    laWidget_SetPosition((laWidget*)RectangleWidget1, 50, 50);
+    laWidget_SetSize((laWidget*)RectangleWidget1, 20, 40);
+    laWidget_SetDrawBackground((laWidget*)RectangleWidget1, LA_TRUE);
+    laWidget_SetBorderType((laWidget*)RectangleWidget1, LA_WIDGET_BORDER_BEVEL);
+    laWidget_AddChild((laWidget*)layer0, (laWidget*)RectangleWidget1);
 
 }
 

@@ -224,11 +224,8 @@ static GFX_Result lccInitialize(GFX_Context* context)
 	DISP_VER_BACK_PORCH = context->display_info->attributes.vert.back_porch;
 	DISP_VER_PULSE_WIDTH = context->display_info->attributes.vert.pulse_width;
 
-
-
     BSP_LCD_RESETOn();
-    BSP_LCD_CSOn();
-
+    
     PLIB_EBI_WriteOutputControlSet(EBI_ID_0, true, false);
     PLIB_EBI_DataEnableSet(EBI_ID_0, true, true);
     
