@@ -167,7 +167,88 @@ build/pic32mz_ef_sk_meb2/production/_ext/1740298103/libaria_harmony.o:  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXCellSize_Default.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXCellProgressPointer_Default.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPatternData_Default.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/driver/tmr/drv_tmr_static.h  \
+ ../../../../../framework/driver/tmr/drv_tmr.h  \
+ ../../../../../framework/driver/driver_common.h  \
+ ../../../../../framework/peripheral/tmr/plib_tmr.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_processor.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_p32xxxx.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_GatedTimeAccumulation_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_registers.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_ClockSource_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Prescale_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_ClockSourceSync_Inverted.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Mode16Bit_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Mode32Bit_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_EnableControl_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_StopInIdle_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Counter16Bit_In16BitRegister.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Counter32Bit_In16BitRegister.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Period16Bit_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_Period32Bit_In16BitRegister_pic32.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_CounterAsyncWriteControl_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_CounterAsyncWriteInProgress_Default.h  \
+ ../../../../../framework/peripheral/tmr/processor/../templates/tmr_TimerOperationMode_Default.h  \
+ ../../../../../framework/driver/tmr/drv_tmr_compatibility.h  \
+ ../../../../../framework/driver/i2c/drv_i2c.h  \
+ ../../../../../framework/peripheral/i2c/plib_i2c.h  \
+ ../../../../../framework/peripheral/i2c/plib_i2c_helper_macros.h  \
+ ../../../../../framework/peripheral/i2c/processor/i2c_processor.h  \
+ ../../../../../framework/peripheral/i2c/processor/i2c_p32xxxx.h  \
+ ../../../../../framework/peripheral/i2c/processor/i2c_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ClockStretching_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_Registers.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_GeneralCall_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SMBus_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_HighFrequency_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ReservedAddressProtect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_StopInIdle_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_IPMI_Unsupported.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ModuleEnable_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_StartDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_StopDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ArbitrationLoss_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_BusIdle_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_BaudRate_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveAddress7Bit_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveAddress10Bit_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveAddressDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_GeneralCallAddressDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveMask_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveReadRequest_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveDataDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveClockHold_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_MasterStart_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_MasterStartRepeat_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_MasterReceiverClock1Byte_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_MasterStop_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_TransmitterBusy_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_TransmitterByteSend_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_TransmitterByteComplete_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_TransmitterByteAcknowledge_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_TransmitterOverflow_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ReceivedByteAvailable_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ReceivedByteGet_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ReceivedByteAcknowledge_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ReceiverOverflow_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveInterruptOnStop_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveInterruptOnStart_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveBufferOverwrite_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_DataLineHoldTime_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveBusCollisionDetect_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveAddressHoldEnable_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_SlaveDataHoldEnable_Default.h  \
+ ../../../../../framework/peripheral/i2c/processor/../templates/i2c_AcksequenceIsInProgress_Default.h  \
  ../../../../../framework/system/ports/sys_ports.h  \
+ ../../../../../framework/driver/i2c/drv_i2c_compatibility.h  \
+ ../../../../../framework/driver/i2c/drv_i2c_mapping.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/driver/i2c/drv_i2c_static_buffer_model.h  \
+ ../../../../../framework/driver/i2c/src/drv_i2c_local.h  \
+ ../../../../../framework/driver/i2c/src/drv_i2c_variant_mapping.h  \
+ ../../../../../framework/osal/osal.h  \
+ ../../../../../framework/osal/osal_definitions.h  \
+ ../../../../../framework/osal/src/osal_impl_basic.h  \
  ../../../../../framework/gfx/hal/gfx.h  \
  ../../../../../framework/gfx/hal/inc/gfx_color.h  \
  ../../../../../framework/gfx/hal/inc/gfx_common.h  \
@@ -194,10 +275,6 @@ build/pic32mz_ef_sk_meb2/production/_ext/1740298103/libaria_harmony.o:  \
  ../../../../../framework/gfx/utils/inc/gfxu_string.h  \
  ../../../../../framework/gfx/utils/inc/gfxu_string_utils.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_config.h  \
- ../../../../../framework/driver/driver_common.h  \
- ../../../../../framework/osal/osal.h  \
- ../../../../../framework/osal/osal_definitions.h  \
- ../../../../../framework/osal/src/osal_impl_basic.h  \
  ../../../../../framework/gfx/libaria/inc/libaria_context.h  \
  ../../../../../framework/gfx/libaria/inc/libaria_editwidget.h  \
  ../../../../../framework/gfx/libaria/inc/libaria_widget.h  \

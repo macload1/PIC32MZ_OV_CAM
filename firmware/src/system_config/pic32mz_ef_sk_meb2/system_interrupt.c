@@ -69,11 +69,46 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
+    
+void __ISR(_TIMER_8_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
+{
+    PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_8);
+    DRV_TMR0_Tasks();
+}
+ 
 void __ISR(_DMA0_VECTOR, ipl1AUTO) _IntHandlerSysDmaCh0(void)
 {          
     SYS_DMA_TasksISR(sysObj.sysDma, DMA_CHANNEL_0);
 }
 
-/*******************************************************************************
+
+
+     
+void __ISR(_I2C3_MASTER_VECTOR, ipl1AUTO) _IntHandlerDrvI2CMasterInstance0(void)
+{
+	DRV_I2C0_Tasks();
+}
+      
+
+void __ISR(_I2C3_BUS_VECTOR, ipl1AUTO) _IntHandlerDrvI2CErrorInstance0(void)
+{
+    /* TODO: Add code to process interrupt here */
+    /* Clear pending interrupt */
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_I2C_3_BUS);
+}
+    
+     
+   
+  
+   
+   
+   
+  
+ 
+
+  
+  
+  
+ /*******************************************************************************
  End of File
 */

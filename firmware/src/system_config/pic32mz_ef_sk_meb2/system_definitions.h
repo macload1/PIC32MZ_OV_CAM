@@ -56,6 +56,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "system/clk/sys_clk.h"
 #include "system/int/sys_int.h"
 #include "system/dma/sys_dma.h"
+#include "driver/tmr/drv_tmr_static.h"
+#include "peripheral/int/plib_int.h"
+#include "driver/i2c/drv_i2c.h"
+#include "framework/driver/i2c/drv_i2c_static_buffer_model.h"
 #include "system/ports/sys_ports.h"
  
 
@@ -98,6 +102,7 @@ extern "C" {
 typedef struct
 {
     SYS_MODULE_OBJ  sysDma;
+    SYS_MODULE_OBJ  drvTmr0;
 
 } SYSTEM_OBJECTS;
 

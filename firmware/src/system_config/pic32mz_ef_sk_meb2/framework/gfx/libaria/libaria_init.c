@@ -47,6 +47,7 @@ laImageWidget* ImageWidget1;
 laButtonWidget* ButtonWidget1;
 laRectangleWidget* RectangleWidget1;
 
+
 static void ScreenCreate_default(laScreen* screen);
 
 
@@ -74,7 +75,6 @@ int32_t libaria_initialize(void)
     defaultScheme.textInactive = 0xD71C;
     defaultScheme.textDisabled = 0x8C92;
    
-    
     screen = laScreen_New(LA_FALSE, LA_FALSE, &ScreenCreate_default);
     laContext_AddScreen(screen);
 

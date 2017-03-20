@@ -85,11 +85,13 @@ extern "C" {
 #define SYS_CLK_FREQ                        200000000ul
 #define SYS_CLK_BUS_PERIPHERAL_1            100000000ul
 #define SYS_CLK_BUS_PERIPHERAL_2            100000000ul
-#define SYS_CLK_BUS_PERIPHERAL_3            100000000ul
+#define SYS_CLK_BUS_PERIPHERAL_3            25000000ul
 #define SYS_CLK_BUS_PERIPHERAL_4            100000000ul
 #define SYS_CLK_BUS_PERIPHERAL_5            100000000ul
 #define SYS_CLK_BUS_PERIPHERAL_7            200000000ul
 #define SYS_CLK_BUS_PERIPHERAL_8            100000000ul
+#define SYS_CLK_BUS_REFERENCE_1             23992502ul
+#define SYS_CLK_BUS_REFERENCE_4             23992502ul
 #define SYS_CLK_CONFIG_PRIMARY_XTAL         24000000ul
 #define SYS_CLK_CONFIG_SECONDARY_XTAL       32768ul
 #define SYS_CLK_CONFIG_FREQ_ERROR_LIMIT     10
@@ -113,7 +115,7 @@ extern "C" {
 #define SYS_PORT_B_CNPD         0x0000
 #define SYS_PORT_B_CNEN         0x0000
 
-#define SYS_PORT_C_ANSEL        0xFFFF
+#define SYS_PORT_C_ANSEL        0xFFFD
 #define SYS_PORT_C_TRIS         0xFFFF
 #define SYS_PORT_C_LAT          0x0000
 #define SYS_PORT_C_ODC          0x0000
@@ -129,7 +131,7 @@ extern "C" {
 #define SYS_PORT_D_CNPD         0x0000
 #define SYS_PORT_D_CNEN         0x0000
 
-#define SYS_PORT_E_ANSEL        0xFEF0
+#define SYS_PORT_E_ANSEL        0xFED0
 #define SYS_PORT_E_TRIS         0xFFFF
 #define SYS_PORT_E_LAT          0x0000
 #define SYS_PORT_E_ODC          0x0000
@@ -162,7 +164,7 @@ extern "C" {
 #define SYS_PORT_H_CNEN         0x0000
 
 #define SYS_PORT_J_ANSEL        0x0B00
-#define SYS_PORT_J_TRIS         0xFF27
+#define SYS_PORT_J_TRIS         0xFF24
 #define SYS_PORT_J_LAT          0x0000
 #define SYS_PORT_J_ODC          0x0000
 #define SYS_PORT_J_CNPU         0x0000
@@ -186,7 +188,25 @@ extern "C" {
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
+#define DRV_I2C_INTERRUPT_MODE                    		true
+    
+   /*** Timer Driver Configuration ***/
+#define DRV_TMR_INTERRUPT_MODE             true
 
+/*** Timer Driver 0 Configuration ***/
+#define DRV_TMR_PERIPHERAL_ID_IDX0          TMR_ID_8
+#define DRV_TMR_INTERRUPT_SOURCE_IDX0       INT_SOURCE_TIMER_8
+#define DRV_TMR_INTERRUPT_VECTOR_IDX0       INT_VECTOR_T8
+#define DRV_TMR_ISR_VECTOR_IDX0             _TIMER_8_VECTOR
+#define DRV_TMR_INTERRUPT_PRIORITY_IDX0     INT_PRIORITY_LEVEL1
+#define DRV_TMR_INTERRUPT_SUB_PRIORITY_IDX0 INT_SUBPRIORITY_LEVEL0
+#define DRV_TMR_CLOCK_SOURCE_IDX0           DRV_TMR_CLKSOURCE_INTERNAL
+#define DRV_TMR_PRESCALE_IDX0               TMR_PRESCALE_VALUE_1
+#define DRV_TMR_OPERATION_MODE_IDX0         DRV_TMR_OPERATION_MODE_16_BIT
+#define DRV_TMR_ASYNC_WRITE_ENABLE_IDX0     false
+#define DRV_TMR_POWER_STATE_IDX0            
+
+  
 // *****************************************************************************
 // *****************************************************************************
 // Section: Middleware & Other Library Configuration
@@ -284,11 +304,18 @@ extern "C" {
 #define BSP_LCD_RESETStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1, Value)
 
 /*** Functions for BSP_CAM_PDN pin ***/
-//#define BSP_CAM_PDNToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_7)
-//#define BSP_CAM_PDNOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_7)
-//#define BSP_CAM_PDNOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_7)
-//#define BSP_CAM_PDNStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_7)
-//#define BSP_CAM_PDNStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_7, Value)
+#define BSP_CAM_PDNToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_0)
+#define BSP_CAM_PDNOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_0)
+#define BSP_CAM_PDNOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_0)
+#define BSP_CAM_PDNStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_0)
+#define BSP_CAM_PDNStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_0, Value)
+
+/*** Functions for BSP_CAM_PDN pin ***/
+#define BSP_CAM_RESETToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
+#define BSP_CAM_RESETOff() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
+#define BSP_CAM_RESETOn() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
+#define BSP_CAM_RESETStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
+#define BSP_CAM_RESETStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1, Value)
 
 
 /*** Application Instance 0 Configuration ***/

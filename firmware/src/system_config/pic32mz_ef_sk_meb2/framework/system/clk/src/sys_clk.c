@@ -96,7 +96,7 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT * clkInit )
     PLIB_OSC_PBClockDivisorSet (OSC_ID_0, OSC_PERIPHERAL_BUS_2, 2 );
     PLIB_OSC_PBOutputClockEnable (OSC_ID_0, OSC_PERIPHERAL_BUS_2 );
     /* Enable Peripheral Bus 3 */
-    PLIB_OSC_PBClockDivisorSet (OSC_ID_0, OSC_PERIPHERAL_BUS_3, 2 );
+    PLIB_OSC_PBClockDivisorSet (OSC_ID_0, OSC_PERIPHERAL_BUS_3, 8 );
     PLIB_OSC_PBOutputClockEnable (OSC_ID_0, OSC_PERIPHERAL_BUS_3 );
     /* Enable Peripheral Bus 4 */
     PLIB_OSC_PBClockDivisorSet (OSC_ID_0, OSC_PERIPHERAL_BUS_4, 2 );
@@ -113,10 +113,23 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT * clkInit )
   
  
 
-       /* Disable REFCLKO1*/
-    PLIB_OSC_ReferenceOscDisable ( OSC_ID_0, OSC_REFERENCE_1 );
+   
+    /* Enable and configure REFCLKO1*/
+    
+    /* ROSEL System Clock SYSCLK */
+    PLIB_OSC_ReferenceOscBaseClockSelect ( OSC_ID_0, OSC_REFERENCE_1, 0 );
+    /* RODIV */
+    PLIB_OSC_ReferenceOscDivisorValueSet ( OSC_ID_0, OSC_REFERENCE_1, 4 );
+    /* ROTRIM */
+    PLIB_OSC_ReferenceOscTrimSet ( OSC_ID_0, OSC_REFERENCE_1, 86 );
+
+    PLIB_OSC_ReferenceOscEnable ( OSC_ID_0, OSC_REFERENCE_1 );
+	/* Set Reference clock frequency */
+	clkObject.referenceClock[OSC_REFERENCE_1] = SYS_CLK_BUS_REFERENCE_1;
+	
+	clkObject.referenceClosestClock[OSC_REFERENCE_1] = SYS_CLK_BUS_REFERENCE_1;
     /* Disable REFCLK1_OE*/
-    PLIB_OSC_ReferenceOutputDisable ( OSC_ID_0, OSC_REFERENCE_1 );
+    PLIB_OSC_ReferenceOutputEnable ( OSC_ID_0, OSC_REFERENCE_1 );
     /* Disable REFCLKO2*/
     PLIB_OSC_ReferenceOscDisable ( OSC_ID_0, OSC_REFERENCE_2 );
     /* Disable REFCLK2_OE*/
@@ -125,10 +138,22 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT * clkInit )
     PLIB_OSC_ReferenceOscDisable ( OSC_ID_0, OSC_REFERENCE_3 );
     /* Disable REFCLK3_OE*/
     PLIB_OSC_ReferenceOutputDisable ( OSC_ID_0, OSC_REFERENCE_3 );
-    /* Disable REFCLKO4*/
-    PLIB_OSC_ReferenceOscDisable ( OSC_ID_0, OSC_REFERENCE_4 );
+    /* Enable and configure REFCLKO4*/
+    
+    /* ROSEL System Clock SYSCLK */
+    PLIB_OSC_ReferenceOscBaseClockSelect ( OSC_ID_0, OSC_REFERENCE_4, OSC_REF_BASECLOCK_SYSCLK );
+    /* RODIV */
+    PLIB_OSC_ReferenceOscDivisorValueSet ( OSC_ID_0, OSC_REFERENCE_4, 4 );
+    /* ROTRIM */
+    PLIB_OSC_ReferenceOscTrimSet ( OSC_ID_0, OSC_REFERENCE_4, 86 );
+
+    PLIB_OSC_ReferenceOscEnable ( OSC_ID_0, OSC_REFERENCE_4 );
+	/* Set Reference clock frequency */
+	clkObject.referenceClock[OSC_REFERENCE_4] = SYS_CLK_BUS_REFERENCE_4;
+	
+	clkObject.referenceClosestClock[OSC_REFERENCE_4] = SYS_CLK_BUS_REFERENCE_4;
     /* Disable REFCLK4_OE*/
-    PLIB_OSC_ReferenceOutputDisable ( OSC_ID_0, OSC_REFERENCE_4 );
+    PLIB_OSC_ReferenceOutputEnable ( OSC_ID_0, OSC_REFERENCE_4 );
 
     SYS_DEVCON_SystemLock ( );
 	

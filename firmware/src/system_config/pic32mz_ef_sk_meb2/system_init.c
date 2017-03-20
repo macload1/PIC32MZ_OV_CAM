@@ -77,7 +77,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config FSOSCEN =    OFF
 #pragma config IESO =       OFF
 #pragma config POSCMOD =    EC
-#pragma config OSCIOFNC =   OFF
+#pragma config OSCIOFNC =   ON
 #pragma config FCKSM =      CSECME
 #pragma config WDTPS =      PS1048576
 #pragma config WDTSPGM =    STOP
@@ -116,6 +116,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Driver Initialization Data
 // *****************************************************************************
 // *****************************************************************************
+// <editor-fold defaultstate="collapsed" desc="DRV_I2C Initialization Data">
+// </editor-fold>
+// <editor-fold defaultstate="collapsed" desc="DRV_Timer Initialization Data">
+// </editor-fold>
 
 // *****************************************************************************
 // *****************************************************************************
@@ -176,6 +180,8 @@ void SYS_Initialize ( void* data )
     BSP_Initialize();        
 
     /* Initialize Drivers */
+    DRV_I2C0_Initialize();
+    
     sysObj.sysDma = SYS_DMA_Initialize((SYS_MODULE_INIT *)&sysDmaInit);
     SYS_INT_VectorPrioritySet(INT_VECTOR_DMA0, INT_PRIORITY_LEVEL1);
     SYS_INT_VectorSubprioritySet(INT_VECTOR_DMA0, INT_SUBPRIORITY_LEVEL0);
@@ -183,7 +189,10 @@ void SYS_Initialize ( void* data )
     SYS_INT_SourceEnable(INT_SOURCE_DMA_0);
 
 
- 
+    /*Initialize TMR0 */
+    DRV_TMR0_Initialize();
+    
+    
     // initialize the GFX hardware abstraction layer
     GFX_Initialize();
 
