@@ -383,7 +383,7 @@ uint32_t _SYS_CLK_PLLOutputDividerRead ( void )
 
 uint32_t _SYS_CLK_PeripheralClockRead ( CLK_BUSES_PERIPHERAL peripheralBus, uint32_t systemClockHz)
 {
-    int32_t freq = 0;
+int32_t freq = 0;
 
     switch (peripheralBus)
     {
@@ -415,17 +415,6 @@ uint32_t _SYS_CLK_PeripheralClockRead ( CLK_BUSES_PERIPHERAL peripheralBus, uint
     }
     
     return freq;
-    /*unsigned short divisor;
-    double hiResFreq = 0.f;
-
-    divisor = PLIB_OSC_PBClockDivisorGet ( OSC_PLIB_ID , _SYS_CLK_GetOscPeripheralBus(peripheralBus) );
-
-    if (divisor > 0)
-    {
-        hiResFreq = (double)systemClockHz / (double)divisor;
-    }
-
-    return (uint32_t)hiResFreq;*/
 }
 
 

@@ -189,8 +189,8 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 #define DRV_I2C_INTERRUPT_MODE                    		true
-    
-   /*** Timer Driver Configuration ***/
+
+/*** Timer Driver Configuration ***/
 #define DRV_TMR_INTERRUPT_MODE             true
 
 /*** Timer Driver 0 Configuration ***/

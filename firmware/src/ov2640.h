@@ -58,6 +58,7 @@ extern "C" {
 */
 
 #define DRV_CAMERA_OV2640_SCCB_WRITE_ID /*DOM-IGNORE-BEGIN*/ 0x60 /*DOM-IGNORE-END*/
+#define DRV_CAMERA_OV2640_SCCB_READ_ID  /*DOM-IGNORE-BEGIN*/ 0x61 /*DOM-IGNORE-END*/
 
 
     // *****************************************************************************

@@ -1,7 +1,6 @@
-build/pic32mz_ef_sk_meb2/production/_ext/1360937237/app.o:  \
-../src/app.c  \
- ../src/app.h  \
-../src/system_config/pic32mz_ef_sk_meb2/system_config.h  \
+build/pic32mz_ef_sk_meb2/production/_ext/1360937237/i2c_master_noint.o:  \
+ ../src/i2c_master_noint.c  \
+ ../src/system_config/pic32mz_ef_sk_meb2/system_config.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
@@ -310,6 +309,4 @@ build/pic32mz_ef_sk_meb2/production/_ext/1360937237/app.o:  \
  ../../../../../framework/gfx/libaria/inc/libaria_widget_window.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_init.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/gfx_assets.h  \
- ../src/app.h  \
-../src/ov2640.h  \
-../src/i2c_master_noint.h 
+ ../src/app.h 

@@ -1181,7 +1181,6 @@
         <Name dnOrder="0">sys_clk.c</Name>
         <Path dnOrder="1">Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
         <Checksum dnOrder="2">5253209F4BC60FE0B1184FC1FCD31C76</Checksum>
-        <ProjectFileChecksum dnOrder="3">A04F9F33DE1AA8634C2BE35094503818</ProjectFileChecksum>
       </Template>
       <Template dnOrder="1">
         <Name dnOrder="0">drv_tmr_static.c</Name>
@@ -1229,7 +1228,6 @@
         <Name dnOrder="0">system_init.c</Name>
         <Path dnOrder="1">Source Files/app/system_config/pic32mz_ef_sk_meb2</Path>
         <Checksum dnOrder="2">AECE36FDDD7AA93C6E3EA13B4F621F32</Checksum>
-        <ProjectFileChecksum dnOrder="3">D387D56D956EE33EE609EFAE4814AB79</ProjectFileChecksum>
       </Template>
       <Template dnOrder="10">
         <Name dnOrder="0">system_tasks.c</Name>
@@ -1360,7 +1358,6 @@
         <Name dnOrder="0">sys_clk_pic32mz.c</Name>
         <Path dnOrder="1">Source Files/app/system_config/pic32mz_ef_sk_meb2/framework/system/clk/src</Path>
         <Checksum dnOrder="2">AB5E5D762896019C368C765EA3138342</Checksum>
-        <ProjectFileChecksum dnOrder="3">06998A61E8C862323375685E6CC987A9</ProjectFileChecksum>
       </Template>
       <Template dnOrder="36">
         <Name dnOrder="0">drv_tmr_mapping.c</Name>

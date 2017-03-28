@@ -311,4 +311,5 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/app.o:  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_init.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/gfx_assets.h  \
  ../src/app.h  \
-../src/ov2640.h 
+../src/ov2640.h  \
+../src/i2c_master_noint.h 

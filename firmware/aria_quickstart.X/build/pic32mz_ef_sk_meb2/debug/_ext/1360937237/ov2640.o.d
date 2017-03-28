@@ -1,9 +1,9 @@
-build/pic32mz_ef_sk_meb2/production/_ext/1360937237/ov2640.o:  \
- ../src/ov2640.c  \
-../src/ov2640.h  \
+build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
+../src/ov2640.c  \
+ ../src/ov2640.h  \
 ../src/ov2640_reg_table.h  \
- ../src/i2c_master_noint.h  \
-../../../../../framework/driver/i2c/drv_i2c.h  \
+../src/i2c_master_noint.h  \
+ ../../../../../framework/driver/i2c/drv_i2c.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/system_config.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \

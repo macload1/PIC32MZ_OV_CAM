@@ -56,6 +56,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "app.h"
 
 #include "ov2640.h"
+#include "i2c_master_noint.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -81,7 +82,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 APP_DATA appData;
 
 DRV_HANDLE delayTimer;
-uint32_t delay_ms;
+volatile uint32_t delay_ms;
 
 extern DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
 DRV_I2C_BUFFER_EVENT i2cOpStatus;
@@ -167,25 +168,21 @@ void APP_Tasks ( void )
             /* Start Timer 3 */
             DRV_TMR_Start(delayTimer);
             
-            
             /* I²C Initialisation */
-            //ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
+            ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
 
             /* event-handler set up receive callback from DRV_I2C_Tasks */
-            //DRV_I2C_BufferEventHandlerSet(ov2640I2CHandler, I2CMasterOpStatusCb, i2cOpStatus );
+            DRV_I2C_BufferEventHandlerSet(ov2640I2CHandler, I2CMasterOpStatusCb, i2cOpStatus );
        
-//            if(ov2640I2CHandler == (DRV_HANDLE) NULL)
-//            {
-//                while(1){}
-//            }
-        
+            ov2640Initialisation();
+
             appData.state = APP_STATE_CAMERA_INIT;
             break;
         }
         
         case APP_STATE_CAMERA_INIT:
         {
-            ov2640Initialisation();
+            //ov2640Initialisation();
 
             appData.state = APP_STATE_SERVICE_TASKS;
               
@@ -224,19 +221,19 @@ void APP_Tasks ( void )
 //  Callback from DRV_I2C_Tasks when I2C is configured in Master mode     
 //****************************************************************************/
 
+volatile uint32_t successCount = 0;
 void I2CMasterOpStatusCb ( DRV_I2C_BUFFER_EVENT event,
                            DRV_I2C_BUFFER_HANDLE bufferHandle,
                            uintptr_t context)
 {
-    static uint32_t successCount = 0;
     
     switch (event)
     {
-        case 0:
+        case DRV_I2C_BUFFER_EVENT_COMPLETE:
             successCount++;
             Nop();
             break;
-        case 1:
+        case DRV_I2C_BUFFER_EVENT_ERROR:
             successCount--;
             break;
         default:

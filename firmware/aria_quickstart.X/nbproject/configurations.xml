@@ -60,6 +60,7 @@
         <itemPath>../src/app.h</itemPath>
         <itemPath>../src/ov2640.h</itemPath>
         <itemPath>../src/ov2640_reg_table.h</itemPath>
+        <itemPath>../src/i2c_master_noint.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="driver" projectFiles="true">
@@ -291,6 +292,7 @@
         <itemPath>../src/app.c</itemPath>
         <itemPath>../src/main.c</itemPath>
         <itemPath>../src/ov2640.c</itemPath>
+        <itemPath>../src/i2c_master_noint.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="framework" projectFiles="true">
         <logicalFolder name="f1" displayName="gfx" projectFiles="true">

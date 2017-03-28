@@ -141,7 +141,7 @@ void SYS_CLK_Initialize( const SYS_CLK_INIT * clkInit )
     /* Enable and configure REFCLKO4*/
     
     /* ROSEL System Clock SYSCLK */
-    PLIB_OSC_ReferenceOscBaseClockSelect ( OSC_ID_0, OSC_REFERENCE_4, OSC_REF_BASECLOCK_SYSCLK );
+    PLIB_OSC_ReferenceOscBaseClockSelect ( OSC_ID_0, OSC_REFERENCE_4, 0 );
     /* RODIV */
     PLIB_OSC_ReferenceOscDivisorValueSet ( OSC_ID_0, OSC_REFERENCE_4, 4 );
     /* ROTRIM */

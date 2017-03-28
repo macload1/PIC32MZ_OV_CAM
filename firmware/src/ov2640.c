@@ -23,6 +23,7 @@
 
 #include "ov2640.h"
 #include "ov2640_reg_table.h"
+#include "i2c_master_noint.h"
 
 #include "driver/i2c/drv_i2c.h"
 #include "driver/tmr/drv_tmr.h"
@@ -30,7 +31,8 @@
 
 DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
 
-extern uint32_t delay_ms;
+extern volatile uint32_t delay_ms;
+extern volatile uint32_t successCount;
 
 /* This section lists the other files that are included in this file.
  */
@@ -65,7 +67,7 @@ extern uint32_t delay_ms;
   @Remarks
     Any additional remarks
  */
-volatile int global_data;
+static volatile int global_data;
 
 
 /* ************************************************************************** */
@@ -74,7 +76,7 @@ volatile int global_data;
 /* ************************************************************************** */
 /* ************************************************************************** */
 void Delay_ms(unsigned int x);
-void DRV_CAMERA_OVM7690_RegisterSet(uint8_t regIndex, uint8_t regValue);
+DRV_I2C_BUFFER_HANDLE DRV_CAMERA_OVM7690_RegisterSet(uint8_t regIndex, uint8_t regValue);
 uint8_t DRV_CAMERA_OVM7690_RegisterGet(uint8_t regIndex);
 
 /*  A brief description of a section can be given directly below the section
@@ -106,18 +108,80 @@ uint8_t DRV_CAMERA_OVM7690_RegisterGet(uint8_t regIndex);
     Initialisation of SCCB and DMA for pixel processing.
  */
 void ov2640Initialisation(void) {
+    uint8_t i;
+//    uint8_t timeout;
+    
     BSP_CAM_PDNOff();
     BSP_CAM_RESETOn();
     Delay_ms(10);
     BSP_CAM_RESETOff();
     
-    if(ov2640I2CHandler == DRV_HANDLE_INVALID)
+    Delay_ms(100);
+    
+    DRV_I2C_BUFFER_HANDLE handler;
+    for(i = 0; i < CHANGE_REG_NUM; i++)
     {
-        while(1){}
+        handler = DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+        Delay_ms(1);
+        //timeout = 0;
+        if(handler != (DRV_HANDLE) NULL)
+        {
+            if(DRV_I2C_BUFFER_EVENT_ERROR == DRV_I2C_TransferStatusGet(ov2640I2CHandler, handler))
+            {
+                //handler = DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+                successCount = i;
+            }
+        }
+//        while(DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(ov2640I2CHandler, handler))
+//        {
+//            Delay_ms(1);
+//            timeout++;
+//            if(timeout > 5)
+//            {
+//                while(1)
+//                {
+//                    PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_F, PORTS_BIT_POS_10);
+//                }
+//            }
+//        }
     }
     
-    global_data = DRV_CAMERA_OVM7690_RegisterGet(0x0A);
     
+//    DRV_I2C_Close( ov2640I2CHandler );
+//    Delay_ms(1);
+//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
+//    for(i = 20; i < 40; i++)
+//    {
+//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+//        Delay_ms(1);
+//    }
+//    DRV_I2C_Close( ov2640I2CHandler );
+//    Delay_ms(1);
+//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
+//    for(i = 40; i < 60; i++)
+//    {
+//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+//        Delay_ms(1);
+//    }
+//    DRV_I2C_Close( ov2640I2CHandler );
+//    Delay_ms(1);
+//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
+//    for(i = 60; i < 80; i++)
+//    {
+//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+//        Delay_ms(1);
+//    }
+//    DRV_I2C_Close( ov2640I2CHandler );
+//    Delay_ms(1);
+//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
+//    for(i = 80; i < 100; i++)
+//    {
+//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
+//        Delay_ms(1);
+//    }
+    
+    
+    //CHANGE_REG_NUM
     return;
 }
 
@@ -183,24 +247,26 @@ void ov2640Initialisation(void) {
     This routine can be used separately or within a interface.
  */
 
-void DRV_CAMERA_OVM7690_RegisterSet 
+DRV_I2C_BUFFER_HANDLE DRV_CAMERA_OVM7690_RegisterSet 
 ( 
     uint8_t regIndex, 
     uint8_t regValue 
 )
 {
     uint8_t frame[2] = {0, 0};
+    DRV_I2C_BUFFER_HANDLE handler;
     
     frame[0] = regIndex;
     frame[1] = regValue;
     
-    DRV_I2C_Transmit(ov2640I2CHandler,
+    
+    handler = DRV_I2C_Transmit(ov2640I2CHandler,
                      DRV_CAMERA_OV2640_SCCB_WRITE_ID,
                      frame,
                      2,
                      NULL);
     
-    return;
+    return handler;
 }
 
 
@@ -275,7 +341,7 @@ uint8_t DRV_CAMERA_OVM7690_RegisterGet
     
     DRV_I2C_TransmitThenReceive(ov2640I2CHandler,
                                 DRV_CAMERA_OV2640_SCCB_WRITE_ID,
-                                frame,
+                                &frame[0],
                                 1,
                                 &frame[1],
                                 1,
