@@ -75,6 +75,12 @@ void __ISR(_TIMER_8_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_8);
     DRV_TMR0_Tasks();
 }
+    
+void __ISR(_TIMER_7_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance1(void)
+{
+    PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_7);
+    DRV_TMR1_Tasks();
+}
  
 void __ISR(_DMA0_VECTOR, ipl1AUTO) _IntHandlerSysDmaCh0(void)
 {          
@@ -86,7 +92,9 @@ void __ISR(_DMA0_VECTOR, ipl1AUTO) _IntHandlerSysDmaCh0(void)
      
 void __ISR(_I2C3_MASTER_VECTOR, ipl1AUTO) _IntHandlerDrvI2CMasterInstance0(void)
 {
-	DRV_I2C0_Tasks();
+	//DRV_I2C0_Tasks();
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_I2C_3_MASTER);    
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_I2C_3_BUS);
 }
       
 

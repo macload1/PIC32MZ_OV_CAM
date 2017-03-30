@@ -1,5 +1,6 @@
-build/pic32mz_ef_sk_meb2/debug/_ext/1951523377/system_init.o:  \
- ../src/system_config/pic32mz_ef_sk_meb2/system_init.c  \
+build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/i2c_bitbanging.o:  \
+ ../src/i2c_bitbanging.c  \
+../src/i2c_bitbanging.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/system_config.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/bsp/bsp.h  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
@@ -39,7 +40,6 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1951523377/system_init.o:  \
  ../../../../../framework/system/devcon/sys_devcon.h  \
  ../../../../../framework/system/system.h  \
  ../../../../../framework/system/clk/sys_clk.h  \
- ../src/system_config/pic32mz_ef_sk_meb2/system_config.h  \
  ../../../../../framework/peripheral/osc/plib_osc.h  \
  ../../../../../framework/peripheral/osc/processor/osc_processor.h  \
  ../../../../../framework/peripheral/osc/processor/osc_p32xxxx.h  \
@@ -263,7 +263,6 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1951523377/system_init.o:  \
  ../../../../../framework/gfx/hal/inc/gfx_draw_rect.h  \
  ../../../../../framework/gfx/hal/inc/gfx_rect.h  \
  ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_harmony.h  \
- ../src/system_config/pic32mz_ef_sk_meb2/system_definitions.h  \
  ../../../../../framework/gfx/libaria/libaria.h  \
  ../../../../../framework/gfx/libaria/inc/libaria_common.h  \
  ../../../../../framework/gfx/libaria/inc/libaria_global.h  \

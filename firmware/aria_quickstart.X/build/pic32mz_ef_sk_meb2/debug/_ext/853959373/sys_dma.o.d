@@ -5,7 +5,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/853959373/sys_dma.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \
@@ -40,7 +40,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/853959373/sys_dma.o:  \
  ../../../../../framework/peripheral/int/processor/int_processor.h  \
  ../../../../../framework/peripheral/int/processor/int_p32xxxx.h  \
  ../../../../../framework/peripheral/int/plib_int_private_pic32.h  \
- ../../../../../framework/peripheral/int/processor/int_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/int/processor/int_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_SingleVectorShadowSet_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_VectorSelect_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_ProximityTimerEnable_Default.h  \
@@ -61,7 +61,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/853959373/sys_dma.o:  \
  ../../../../../framework/peripheral/dma/plib_dma.h  \
  ../../../../../framework/peripheral/dma/processor/dma_processor.h  \
  ../../../../../framework/peripheral/dma/processor/dma_p32xxxx.h  \
- ../../../../../framework/peripheral/dma/processor/dma_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/dma/processor/dma_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Busy_Default.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Registers.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Suspend_Default.h  \

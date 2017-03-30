@@ -84,6 +84,10 @@ APP_DATA appData;
 DRV_HANDLE delayTimer;
 volatile uint32_t delay_ms;
 
+DRV_HANDLE delayUsTimer;
+volatile uint32_t delay_us;
+
+
 extern DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
 DRV_I2C_BUFFER_EVENT i2cOpStatus;
 
@@ -95,6 +99,12 @@ DRV_I2C_BUFFER_EVENT i2cOpStatus;
 void APP_TimerCallback( uintptr_t context, uint32_t alarmCount )
 {
     delay_ms++;
+    //PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_14);
+}
+
+void APP_TimerUsCallback( uintptr_t context, uint32_t alarmCount )
+{
+    delay_us++;
     PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_14);
 }
 
@@ -135,6 +145,9 @@ void APP_Initialize ( void )
     PLIB_PORTS_PinDirectionOutputSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_14);
 
     delayTimer = DRV_TMR_Open(DRV_TMR_INDEX_0, 0);
+    
+    /* Initialise timer 7 for us delay */
+    delayUsTimer = DRV_TMR_Open(DRV_TMR_INDEX_1, 0);
 }
 
 
@@ -165,14 +178,13 @@ void APP_Tasks ( void )
             
             DRV_TMR_AlarmRegister(delayTimer, 25240, true, 0, APP_TimerCallback);
             DRV_TMR_AlarmEnable(delayTimer, true);
-            /* Start Timer 3 */
+            /* Start Timer 8 */
             DRV_TMR_Start(delayTimer);
-            
-            /* I²C Initialisation */
-            ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
-
-            /* event-handler set up receive callback from DRV_I2C_Tasks */
-            DRV_I2C_BufferEventHandlerSet(ov2640I2CHandler, I2CMasterOpStatusCb, i2cOpStatus );
+    
+            DRV_TMR_AlarmRegister(delayUsTimer, 25, true, 0, APP_TimerUsCallback);
+            DRV_TMR_AlarmEnable(delayUsTimer, true);
+            /* Start Timer 7 */
+            DRV_TMR_Start(delayUsTimer);
        
             ov2640Initialisation();
 

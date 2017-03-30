@@ -9,7 +9,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \
@@ -42,7 +42,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/i2c/plib_i2c_helper_macros.h  \
  ../../../../../framework/peripheral/i2c/processor/i2c_processor.h  \
  ../../../../../framework/peripheral/i2c/processor/i2c_p32xxxx.h  \
- ../../../../../framework/peripheral/i2c/processor/i2c_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/i2c/processor/i2c_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/i2c/processor/../templates/i2c_ClockStretching_Default.h  \
  ../../../../../framework/peripheral/i2c/processor/../templates/i2c_Registers.h  \
  ../../../../../framework/peripheral/i2c/processor/../templates/i2c_GeneralCall_Default.h  \
@@ -93,7 +93,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/int/processor/int_processor.h  \
  ../../../../../framework/peripheral/int/processor/int_p32xxxx.h  \
  ../../../../../framework/peripheral/int/plib_int_private_pic32.h  \
- ../../../../../framework/peripheral/int/processor/int_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/int/processor/int_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_SingleVectorShadowSet_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_VectorSelect_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_ProximityTimerEnable_Default.h  \
@@ -114,7 +114,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/osc/plib_osc.h  \
  ../../../../../framework/peripheral/osc/processor/osc_processor.h  \
  ../../../../../framework/peripheral/osc/processor/osc_p32xxxx.h  \
- ../../../../../framework/peripheral/osc/processor/osc_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/osc/processor/osc_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_OnWaitAction_Default.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_SecondaryEnable_Default.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_SecondaryReady_Default.h  \
@@ -173,7 +173,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/tmr/plib_tmr.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_processor.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_p32xxxx.h  \
- ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecm144.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecg144.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_GatedTimeAccumulation_Default.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_registers.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_ClockSource_Default.h  \
@@ -190,4 +190,127 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1360937237/ov2640.o:  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_CounterAsyncWriteControl_Default.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_CounterAsyncWriteInProgress_Default.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_TimerOperationMode_Default.h  \
- ../../../../../framework/driver/tmr/drv_tmr_compatibility.h 
+ ../../../../../framework/driver/tmr/drv_tmr_compatibility.h  \
+ ../src/i2c_bitbanging.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/system_definitions.h  \
+ ../../../../../framework/system/devcon/sys_devcon.h  \
+ ../../../../../framework/system/system.h  \
+ ../../../../../framework/system/dma/sys_dma.h  \
+ ../../../../../framework/peripheral/dma/plib_dma.h  \
+ ../../../../../framework/peripheral/dma/processor/dma_processor.h  \
+ ../../../../../framework/peripheral/dma/processor/dma_p32xxxx.h  \
+ ../../../../../framework/peripheral/dma/processor/dma_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_Busy_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_Registers.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_Suspend_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_StopInIdle_Unsupported.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_EnableControl_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelBits_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_LastBusAccess_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_RecentAddress_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCChannel_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCType_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCAppendMode_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_Crc_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCPolynomialLength_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCBitOrder_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCWriteByteOrder_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCByteOrder_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCData_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_CRCXOREnable_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPriority_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXEvent_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXAuto_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXChainEnbl_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXDisabled_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelX_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXChain_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPatternLength_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPatternIgnoreByte_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXBusy_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPatternIgnore_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXTrigger_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_AbortTransfer_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_StartTransfer_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXStartIRQ_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXAbortIRQ_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXINTSourceFlag_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXINTSource_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXSourceStartAddress_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXDestinationStartAddress_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXSourceSize_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXDestinationSize_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXSourcePointer_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXDestinationPointer_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXCellSize_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXCellProgressPointer_Default.h  \
+ ../../../../../framework/peripheral/dma/processor/../templates/dma_ChannelXPatternData_Default.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/driver/tmr/drv_tmr_static.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/driver/i2c/drv_i2c_static_buffer_model.h  \
+ ../../../../../framework/driver/i2c/src/drv_i2c_local.h  \
+ ../../../../../framework/driver/i2c/src/drv_i2c_variant_mapping.h  \
+ ../../../../../framework/osal/osal.h  \
+ ../../../../../framework/osal/osal_definitions.h  \
+ ../../../../../framework/osal/src/osal_impl_basic.h  \
+ ../../../../../framework/gfx/hal/gfx.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_color.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_common.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/hal/gfx_config.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_display.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw_blit.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_pixel_buffer.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw_circle.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw_line.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw_pixel.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_draw_rect.h  \
+ ../../../../../framework/gfx/hal/inc/gfx_rect.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_harmony.h  \
+ ../../../../../framework/gfx/libaria/libaria.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_common.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_global.h  \
+ ../../../../../framework/gfx/utils/gfx_utils.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_binary.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_global.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_font.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_image.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_palette.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_string.h  \
+ ../../../../../framework/gfx/utils/inc/gfxu_string_utils.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_config.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_context.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_editwidget.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_input.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_event.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_list.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_scheme.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_draw.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_layer.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_screen.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_string.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_button.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_checkbox.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_circle.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_drawsurface.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_gradient.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_groupbox.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_image.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_imagesequence.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_keypad.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_label.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_line.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_list.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_scrollbar.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_listwheel.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_progressbar.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_radiobutton.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_radiobutton_group.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_rectangle.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_slider.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_textfield.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_touchtest.h  \
+ ../../../../../framework/gfx/libaria/inc/libaria_widget_window.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/libaria/libaria_init.h  \
+ ../src/system_config/pic32mz_ef_sk_meb2/framework/gfx/gfx_assets.h  \
+ ../src/app.h 

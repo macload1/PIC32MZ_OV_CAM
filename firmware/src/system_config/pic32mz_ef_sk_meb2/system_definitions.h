@@ -103,6 +103,7 @@ typedef struct
 {
     SYS_MODULE_OBJ  sysDma;
     SYS_MODULE_OBJ  drvTmr0;
+    SYS_MODULE_OBJ  drvTmr1;
 
 } SYSTEM_OBJECTS;
 

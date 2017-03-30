@@ -28,46 +28,20 @@
 #include "driver/i2c/drv_i2c.h"
 #include "driver/tmr/drv_tmr.h"
 
+#include "i2c_bitbanging.h"
+
 
 DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
 
 extern volatile uint32_t delay_ms;
 extern volatile uint32_t successCount;
 
-/* This section lists the other files that are included in this file.
- */
-
-/* TODO:  Include other files here if needed. */
-
-
 /* ************************************************************************** */
 /* ************************************************************************** */
 /* Section: File Scope or Global Data                                         */
 /* ************************************************************************** */
 /* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
-/* ************************************************************************** */
-/** Descriptive Data Item Name
-
-  @Summary
-    Brief one-line summary of the data item.
-    
-  @Description
-    Full description, explaining the purpose and usage of data item.
-    <p>
-    Additional description in consecutive paragraphs separated by HTML 
-    paragraph breaks, as necessary.
-    <p>
-    Type "JavaDoc" in the "How Do I?" IDE toolbar for more information on tags.
-    
-  @Remarks
-    Any additional remarks
- */
-static volatile int global_data;
+static volatile uint8_t global_data[CHANGE_REG_NUM*2];
 
 
 /* ************************************************************************** */
@@ -79,10 +53,6 @@ void Delay_ms(unsigned int x);
 DRV_I2C_BUFFER_HANDLE DRV_CAMERA_OVM7690_RegisterSet(uint8_t regIndex, uint8_t regValue);
 uint8_t DRV_CAMERA_OVM7690_RegisterGet(uint8_t regIndex);
 
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
-
 
 
 /* ************************************************************************** */
@@ -90,10 +60,6 @@ uint8_t DRV_CAMERA_OVM7690_RegisterGet(uint8_t regIndex);
 // Section: Interface Functions                                               */
 /* ************************************************************************** */
 /* ************************************************************************** */
-
-/*  A brief description of a section can be given directly below the section
-    banner.
- */
 
 // *****************************************************************************
 
@@ -109,8 +75,9 @@ uint8_t DRV_CAMERA_OVM7690_RegisterGet(uint8_t regIndex);
  */
 void ov2640Initialisation(void) {
     uint8_t i;
-//    uint8_t timeout;
     
+    BSP_CAM_PDNOn();
+    Delay_ms(100);
     BSP_CAM_PDNOff();
     BSP_CAM_RESETOn();
     Delay_ms(10);
@@ -118,70 +85,30 @@ void ov2640Initialisation(void) {
     
     Delay_ms(100);
     
-    DRV_I2C_BUFFER_HANDLE handler;
     for(i = 0; i < CHANGE_REG_NUM; i++)
     {
-        handler = DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-        Delay_ms(1);
-        //timeout = 0;
-        if(handler != (DRV_HANDLE) NULL)
+        if(i2c_Write_Reg(DRV_CAMERA_OV2640_SCCB_WRITE_ID, change_reg[2*i], change_reg[2*i+1]))
         {
-            if(DRV_I2C_BUFFER_EVENT_ERROR == DRV_I2C_TransferStatusGet(ov2640I2CHandler, handler))
-            {
-                //handler = DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-                successCount = i;
-            }
+            /* Good working! */
+            successCount++;
         }
-//        while(DRV_I2C_BUFFER_EVENT_COMPLETE != DRV_I2C_TransferStatusGet(ov2640I2CHandler, handler))
-//        {
-//            Delay_ms(1);
-//            timeout++;
-//            if(timeout > 5)
-//            {
-//                while(1)
-//                {
-//                    PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_F, PORTS_BIT_POS_10);
-//                }
-//            }
-//        }
     }
     
+    for(i = 0; i < CHANGE_REG_NUM; i++)
+    {
+        global_data[2*i] = change_reg[2*i];
+        global_data[2*i+1] = i2c_Read_Reg(DRV_CAMERA_OV2640_SCCB_WRITE_ID, change_reg[2*i]);
+    }
     
-//    DRV_I2C_Close( ov2640I2CHandler );
-//    Delay_ms(1);
-//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
-//    for(i = 20; i < 40; i++)
-//    {
-//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-//        Delay_ms(1);
-//    }
-//    DRV_I2C_Close( ov2640I2CHandler );
-//    Delay_ms(1);
-//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
-//    for(i = 40; i < 60; i++)
-//    {
-//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-//        Delay_ms(1);
-//    }
-//    DRV_I2C_Close( ov2640I2CHandler );
-//    Delay_ms(1);
-//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
-//    for(i = 60; i < 80; i++)
-//    {
-//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-//        Delay_ms(1);
-//    }
-//    DRV_I2C_Close( ov2640I2CHandler );
-//    Delay_ms(1);
-//    ov2640I2CHandler = DRV_I2C_Open( DRV_I2C_INDEX_0, DRV_IO_INTENT_READWRITE );
-//    for(i = 80; i < 100; i++)
-//    {
-//        DRV_CAMERA_OVM7690_RegisterSet(change_reg[2*i], change_reg[2*i+1]);
-//        Delay_ms(1);
-//    }
-    
-    
-    //CHANGE_REG_NUM
+    for(i = 0; i < 219; i++)
+    {
+        if(i2c_Write_Reg(DRV_CAMERA_OV2640_SCCB_WRITE_ID, OV2640_QVGA[2*i], OV2640_QVGA[2*i+1]))
+        {
+            /* Good working! */
+            successCount++;
+        }
+    }
+
     return;
 }
 
