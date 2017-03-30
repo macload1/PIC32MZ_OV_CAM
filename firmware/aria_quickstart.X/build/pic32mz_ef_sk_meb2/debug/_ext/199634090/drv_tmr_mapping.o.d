@@ -6,7 +6,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/199634090/drv_tmr_mapping.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \
@@ -38,7 +38,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/199634090/drv_tmr_mapping.o:  \
  ../../../../../framework/peripheral/tmr/plib_tmr.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_processor.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_p32xxxx.h  \
- ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_GatedTimeAccumulation_Default.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_registers.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_ClockSource_Default.h  \
@@ -62,7 +62,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/199634090/drv_tmr_mapping.o:  \
  ../../../../../framework/peripheral/int/processor/int_processor.h  \
  ../../../../../framework/peripheral/int/processor/int_p32xxxx.h  \
  ../../../../../framework/peripheral/int/plib_int_private_pic32.h  \
- ../../../../../framework/peripheral/int/processor/int_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/int/processor/int_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_SingleVectorShadowSet_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_VectorSelect_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_ProximityTimerEnable_Default.h  \
@@ -83,7 +83,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/199634090/drv_tmr_mapping.o:  \
  ../../../../../framework/peripheral/osc/plib_osc.h  \
  ../../../../../framework/peripheral/osc/processor/osc_processor.h  \
  ../../../../../framework/peripheral/osc/processor/osc_p32xxxx.h  \
- ../../../../../framework/peripheral/osc/processor/osc_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/osc/processor/osc_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_OnWaitAction_Default.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_SecondaryEnable_Default.h  \
  ../../../../../framework/peripheral/osc/processor/../templates/osc_SecondaryReady_Default.h  \

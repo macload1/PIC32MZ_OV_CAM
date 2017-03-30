@@ -6,7 +6,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1042686532/sys_int_pic32.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \
@@ -40,7 +40,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1042686532/sys_int_pic32.o:  \
  ../../../../../framework/peripheral/int/processor/int_processor.h  \
  ../../../../../framework/peripheral/int/processor/int_p32xxxx.h  \
  ../../../../../framework/peripheral/int/plib_int_private_pic32.h  \
- ../../../../../framework/peripheral/int/processor/int_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/int/processor/int_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_SingleVectorShadowSet_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_VectorSelect_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_ProximityTimerEnable_Default.h  \

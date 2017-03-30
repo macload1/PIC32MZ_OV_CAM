@@ -183,8 +183,7 @@ void APP_Tasks ( void )
     
             DRV_TMR_AlarmRegister(delayUsTimer, 25, true, 0, APP_TimerUsCallback);
             DRV_TMR_AlarmEnable(delayUsTimer, true);
-            /* Start Timer 7 */
-            DRV_TMR_Start(delayUsTimer);
+            
        
             ov2640Initialisation();
 

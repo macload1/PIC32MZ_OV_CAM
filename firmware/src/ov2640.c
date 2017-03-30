@@ -33,6 +33,8 @@
 
 DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
 
+extern DRV_HANDLE delayUsTimer;
+
 extern volatile uint32_t delay_ms;
 extern volatile uint32_t successCount;
 
@@ -85,6 +87,9 @@ void ov2640Initialisation(void) {
     
     Delay_ms(100);
     
+    /* Start Timer 7 */
+    DRV_TMR_Start(delayUsTimer);
+
     for(i = 0; i < CHANGE_REG_NUM; i++)
     {
         if(i2c_Write_Reg(DRV_CAMERA_OV2640_SCCB_WRITE_ID, change_reg[2*i], change_reg[2*i+1]))
@@ -108,7 +113,9 @@ void ov2640Initialisation(void) {
             successCount++;
         }
     }
-
+    /* Start Timer 7 */
+    DRV_TMR_Stop(delayUsTimer);
+    
     return;
 }
 

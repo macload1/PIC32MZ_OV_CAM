@@ -444,10 +444,10 @@
     <conf name="pic32mz_ef_sk_meb2" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>PIC32MZ2048ECG144</targetDevice>
+        <targetDevice>PIC32MZ2048ECM144</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>RealICEPlatformTool</platformTool>
+        <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.42</languageToolchainVersion>
         <platform>3</platform>
@@ -602,8 +602,6 @@
       </C32Global>
       <ICD3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="CAN1" value="true"/>
-        <property key="CAN2" value="true"/>
         <property key="CHANGE NOTICE A" value="true"/>
         <property key="CHANGE NOTICE B" value="true"/>
         <property key="CHANGE NOTICE C" value="true"/>
@@ -821,8 +819,6 @@
       </PICkit3PlatformTool>
       <RealICEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
-        <property key="CAN1" value="true"/>
-        <property key="CAN2" value="true"/>
         <property key="CHANGE NOTICE A" value="true"/>
         <property key="CHANGE NOTICE B" value="true"/>
         <property key="CHANGE NOTICE C" value="true"/>
@@ -931,6 +927,12 @@
         <property key="programoptions.programuserotp" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="tracecontrol.include.timestamp" value="summarydataenabled"/>
+        <property key="tracecontrol.select" value="0"/>
+        <property key="tracecontrol.stallontracebufferfull" value="false"/>
+        <property key="tracecontrol.tracebufmax" value="546000"/>
+        <property key="tracecontrol.tracefile" value="defmplabxtrace.log"/>
+        <property key="tracecontrol.tracefilemax" value="10000000"/>
         <property key="voltagevalue" value="3.25"/>
       </RealICEPlatformTool>
     </conf>

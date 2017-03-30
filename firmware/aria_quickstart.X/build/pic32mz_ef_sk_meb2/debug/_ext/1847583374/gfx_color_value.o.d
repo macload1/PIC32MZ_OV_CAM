@@ -7,7 +7,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/1847583374/gfx_color_value.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \

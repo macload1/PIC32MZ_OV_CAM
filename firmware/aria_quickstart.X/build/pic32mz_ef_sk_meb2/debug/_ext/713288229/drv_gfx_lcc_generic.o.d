@@ -7,7 +7,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/ports/plib_ports.h  \
  ../../../../../framework/peripheral/ports/processor/ports_processor.h  \
  ../../../../../framework/peripheral/ports/processor/ports_p32xxxx.h  \
- ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/ports/processor/ports_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/peripheral_common_32bit.h  \
  ../../../../../framework/peripheral/peripheral_common.h  \
  ../../../../../framework/peripheral/ports/processor/../templates/ports_RemapInput_default.h  \
@@ -57,7 +57,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/dma/plib_dma.h  \
  ../../../../../framework/peripheral/dma/processor/dma_processor.h  \
  ../../../../../framework/peripheral/dma/processor/dma_p32xxxx.h  \
- ../../../../../framework/peripheral/dma/processor/dma_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/dma/processor/dma_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Busy_Default.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Registers.h  \
  ../../../../../framework/peripheral/dma/processor/../templates/dma_Suspend_Default.h  \
@@ -108,7 +108,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/int/processor/int_processor.h  \
  ../../../../../framework/peripheral/int/processor/int_p32xxxx.h  \
  ../../../../../framework/peripheral/int/plib_int_private_pic32.h  \
- ../../../../../framework/peripheral/int/processor/int_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/int/processor/int_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_SingleVectorShadowSet_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_VectorSelect_Default.h  \
  ../../../../../framework/peripheral/int/processor/../templates/int_ProximityTimerEnable_Default.h  \
@@ -128,7 +128,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/pmp/plib_pmp.h  \
  ../../../../../framework/peripheral/pmp/processor/pmp_processor.h  \
  ../../../../../framework/peripheral/pmp/processor/pmp_p32xxxx.h  \
- ../../../../../framework/peripheral/pmp/processor/pmp_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/pmp/processor/pmp_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/pmp/processor/../templates/pmp_StartReadControl_Unsupported.h  \
  ../../../../../framework/peripheral/pmp/processor/../templates/pmp_DualBufferControl_Unsupported.h  \
  ../../../../../framework/peripheral/pmp/processor/../templates/pmp_EnableControl_Default.h  \
@@ -174,7 +174,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/tmr/plib_tmr.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_processor.h  \
  ../../../../../framework/peripheral/tmr/processor/tmr_p32xxxx.h  \
- ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/tmr/processor/tmr_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_GatedTimeAccumulation_Default.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_registers.h  \
  ../../../../../framework/peripheral/tmr/processor/../templates/tmr_ClockSource_Default.h  \
@@ -194,7 +194,7 @@ build/pic32mz_ef_sk_meb2/debug/_ext/713288229/drv_gfx_lcc_generic.o:  \
  ../../../../../framework/peripheral/ebi/plib_ebi.h  \
  ../../../../../framework/peripheral/ebi/processor/ebi_processor.h  \
  ../../../../../framework/peripheral/ebi/processor/ebi_p32xxxx.h  \
- ../../../../../framework/peripheral/ebi/processor/ebi_p32mz2048ecg144.h  \
+ ../../../../../framework/peripheral/ebi/processor/ebi_p32mz2048ecm144.h  \
  ../../../../../framework/peripheral/ebi/processor/../templates/ebi_Base_Address_Default.h  \
  ../../../../../framework/peripheral/ebi/processor/../templates/ebi_Registers.h  \
  ../../../../../framework/peripheral/ebi/processor/../templates/ebi_MemoryCharacteristics_Default.h  \
