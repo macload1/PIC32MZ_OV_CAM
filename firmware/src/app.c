@@ -56,7 +56,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "app.h"
 
 #include "ov2640.h"
-#include "i2c_master_noint.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -88,8 +87,6 @@ DRV_HANDLE delayUsTimer;
 volatile uint32_t delay_us;
 
 
-extern DRV_I2C_BUFFER_HANDLE ov2640I2CHandler;
-DRV_I2C_BUFFER_EVENT i2cOpStatus;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -107,10 +104,6 @@ void APP_TimerUsCallback( uintptr_t context, uint32_t alarmCount )
     delay_us++;
     PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_14);
 }
-
-void I2CMasterOpStatusCb ( DRV_I2C_BUFFER_EVENT event,
-                           DRV_I2C_BUFFER_HANDLE bufferHandle,
-                           uintptr_t context);
 
 // *****************************************************************************
 // *****************************************************************************
