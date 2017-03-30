@@ -226,24 +226,7 @@ void APP_Tasks ( void )
 //****************************************************************************/
 
 volatile uint32_t successCount = 0;
-void I2CMasterOpStatusCb ( DRV_I2C_BUFFER_EVENT event,
-                           DRV_I2C_BUFFER_HANDLE bufferHandle,
-                           uintptr_t context)
-{
-    
-    switch (event)
-    {
-        case DRV_I2C_BUFFER_EVENT_COMPLETE:
-            successCount++;
-            Nop();
-            break;
-        case DRV_I2C_BUFFER_EVENT_ERROR:
-            successCount--;
-            break;
-        default:
-            break;
-    }
-}
+
 
 /*******************************************************************************
  End of File
