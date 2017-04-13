@@ -99,8 +99,8 @@ extern "C" {
 #define SYS_CLK_ON_WAIT                     OSC_ON_WAIT_IDLE 
  
 /*** Ports System Service Configuration ***/
-#define SYS_PORT_A_ANSEL        0x3D22
-#define SYS_PORT_A_TRIS         0xFDFF
+#define SYS_PORT_A_ANSEL        0x3922
+#define SYS_PORT_A_TRIS         0xFFFF
 #define SYS_PORT_A_LAT          0x0000
 #define SYS_PORT_A_ODC          0x0000
 #define SYS_PORT_A_CNPU         0x0001
@@ -123,7 +123,7 @@ extern "C" {
 #define SYS_PORT_C_CNPD         0x0000
 #define SYS_PORT_C_CNEN         0x0000
 
-#define SYS_PORT_D_ANSEL        0xC100
+#define SYS_PORT_D_ANSEL        0x0100
 #define SYS_PORT_D_TRIS         0xFFFF
 #define SYS_PORT_D_LAT          0x0000
 #define SYS_PORT_D_ODC          0x0000
@@ -131,7 +131,7 @@ extern "C" {
 #define SYS_PORT_D_CNPD         0x0000
 #define SYS_PORT_D_CNEN         0x0000
 
-#define SYS_PORT_E_ANSEL        0xFED0
+#define SYS_PORT_E_ANSEL        0xFCD0
 #define SYS_PORT_E_TRIS         0xFFFF
 #define SYS_PORT_E_LAT          0x0000
 #define SYS_PORT_E_ODC          0x0000
@@ -172,7 +172,7 @@ extern "C" {
 #define SYS_PORT_J_CNEN         0x0000
 
 #define SYS_PORT_K_ANSEL        0xFF00
-#define SYS_PORT_K_TRIS         0xFFC6
+#define SYS_PORT_K_TRIS         0xFFFF
 #define SYS_PORT_K_LAT          0x0000
 #define SYS_PORT_K_ODC          0x0000
 #define SYS_PORT_K_CNPU         0x0000
@@ -279,13 +279,13 @@ extern "C" {
 /*** Functions for BSP_SWITCH_3 pin ***/
 #define BSP_SWITCH_3StateGet() PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_B, PORTS_BIT_POS_14)
 
-/*** Functions for BSP_LCD_DE pin ***/
+/*** Functions for BSP_LCD_HSYNC pin ***/
 #define BSP_LCD_DEToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_4)
 #define BSP_LCD_DEOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_4)
 #define BSP_LCD_DEOff() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_4)
 #define BSP_LCD_DEStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_4)
 #define BSP_LCD_DEStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_4, Value)
-
+    
 /*** Functions for BSP_LCD_HSYNC pin ***/
 #define BSP_LCD_HSYNCToggle() PLIB_PORTS_PinToggle(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_3)
 #define BSP_LCD_HSYNCOn() PLIB_PORTS_PinSet(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_3)
@@ -327,6 +327,12 @@ extern "C" {
 #define BSP_CAM_RESETOn() PLIB_PORTS_PinClear(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
 #define BSP_CAM_RESETStateGet() PLIB_PORTS_PinGetLatched(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1)
 #define BSP_CAM_RESETStateSet(Value) PLIB_PORTS_PinWrite(PORTS_ID_0, PORT_CHANNEL_J, PORTS_BIT_POS_1, Value)
+
+/*** Functions for CAM_VSYNC pin ***/
+#define CAM_VSYNCStateGet() PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_9)
+
+/*** Functions for CAM_HREF pin ***/
+#define CAM_HREFStateGet() PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_10)
 
 
 /*** Application Instance 0 Configuration ***/

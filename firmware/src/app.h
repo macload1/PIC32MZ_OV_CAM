@@ -200,6 +200,16 @@ void APP_Initialize ( void );
 void APP_Tasks( void );
 
 
+
+/*** Functions for CAM_VSYNC pin ***/
+#define CAM_VSYNCInput()    PLIB_PORTS_PinDirectionInputSet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_9)
+//#define CAM_VSYNCStateGet() PORTAbits.RA9 //PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_9)
+
+/*** Functions for CAM_HREF pin ***/
+#define CAM_HREFInput()     PLIB_PORTS_PinDirectionInputSet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_10)
+//#define CAM_HREFStateGet()  PORTAbits.RA10 //PLIB_PORTS_PinGet(PORTS_ID_0, PORT_CHANNEL_A, PORTS_BIT_POS_10)
+
+
 #endif /* _APP_H */
 
 //DOM-IGNORE-BEGIN

@@ -63,30 +63,82 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "app.h"
 #include "system_definitions.h"
 
+
+#define BUFFER_COUNT    1
+#define DISPLAY_WIDTH   480
+#define DISPLAY_HEIGHT  272
+extern uint16_t __attribute__((coherent, aligned(16))) frameBuffer[BUFFER_COUNT][DISPLAY_WIDTH * DISPLAY_HEIGHT];
+extern volatile bool sampleCam;
+extern uint32_t line;
+extern uint32_t column;
+extern SYS_DMA_CHANNEL_HANDLE channelHandle;
+volatile uint16_t colorToDma = 0x0FF0;
+
+
+extern __inline__ unsigned int __attribute__((always_inline)) _VirtToPhys(const void* p)
+{
+    return (int)p<0?((int)p&0x1fffffffL):(unsigned int)((unsigned char*)p+0x40000000L);
+}
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: System Interrupt Vector Functions
 // *****************************************************************************
 // *****************************************************************************
+void __ISR(_EXTERNAL_3_VECTOR, IPL1AUTO) _IntHandlerExternalInterruptInstance0(void)
+{
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_3);
+//    IFS0bits.INT3IF = 0;
+//    if(sampleCam)
+//    {
+//        if((column < 272) &&(line < 320))
+//            frameBuffer[0][line*272+column] = PORTK;
+//        column++;
+//
+//    }
+}
+void __ISR(_EXTERNAL_1_VECTOR, IPL1AUTO) _IntHandlerExternalInterruptInstance1(void)
+{
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_1);
+    line = 0;
+}
+void __ISR(_EXTERNAL_2_VECTOR, IPL1AUTO) _IntHandlerExternalInterruptInstance2(void)
+{
+    PLIB_INT_SourceFlagClear(INT_ID_0, INT_SOURCE_EXTERNAL_2);
+    column = 0;
+    line++;
+    line = line %240;
+    sampleCam = true;
+    SYS_DMA_ChannelSetup(channelHandle,SYS_DMA_CHANNEL_OP_MODE_AUTO, DMA_TRIGGER_EXTERNAL_3);
+    SYS_DMA_ChannelTransferAdd(channelHandle, (void*)_VirtToPhys((void*)&PORTK), 1, &frameBuffer[0][line*DISPLAY_WIDTH], 2*320, 1);
+    SYS_DMA_ChannelEnable(channelHandle);
+    //_VirtToPhys((void*)&PORTK)
+}
 
-    
+
 void __ISR(_TIMER_8_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance0(void)
 {
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_8);
     DRV_TMR0_Tasks();
 }
-    
+
 void __ISR(_TIMER_7_VECTOR, ipl1AUTO) IntHandlerDrvTmrInstance1(void)
 {
     PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_7);
     DRV_TMR1_Tasks();
 }
- 
+
 void __ISR(_DMA0_VECTOR, ipl1AUTO) _IntHandlerSysDmaCh0(void)
 {          
     SYS_DMA_TasksISR(sysObj.sysDma, DMA_CHANNEL_0);
 }
 
- /*******************************************************************************
+void __ISR(_DMA2_VECTOR, ipl1AUTO) _IntHandlerSysDmaCh1(void)
+{          
+    SYS_DMA_TasksISR(sysObj.sysDma, DMA_CHANNEL_2);
+}
+
+
+/*******************************************************************************
  End of File
 */
